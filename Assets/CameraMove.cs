@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,22 +10,29 @@ public class CameraMove : MonoBehaviour
     Vector3 mousePositionVec3;
     InputAction mouseMove;
     InputAction mouseClick;
+    InputAction cameraZoom;
+    public Camera mainCamera;
+    public float zoomSpeed = 0.2f;
+    public float minZoom, maxZoom;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mouseMove= InputSystem.actions["MouseMove"];
-        mouseClick= InputSystem.actions["MouseClick"];
+        mouseMove = InputSystem.actions["MouseMove"];
+        mouseClick = InputSystem.actions["MouseClick"];
+        cameraZoom = InputSystem.actions["Zoom"];
+        mainCamera = GetComponentInChildren<Camera>();
     }
-
     // Update is called once per frame
     void Update()
     {
         mousePosition= mouseMove.ReadValue<Vector2>();
         mousePositionVec3 = new Vector3(mousePosition.x,0, mousePosition.y);
+        Debug.Log("scroll wheel" + cameraZoom.ReadValue<float>());
+        mainCamera.orthographicSize = Mathf.Clamp((mainCamera.orthographicSize + cameraZoom.ReadValue<float>() * zoomSpeed), minZoom, maxZoom);
         if (mouseClick.IsPressed())
         {
-            Debug.Log("mouse is pressed");
-            Debug.Log(mousePosition.ToString());
+            //Debug.Log("mouse is pressed");
+            //Debug.Log(mousePosition.ToString());
             this.transform.Translate(mousePositionVec3*CameraMoveSpeed,Space.Self);
         }  
         
