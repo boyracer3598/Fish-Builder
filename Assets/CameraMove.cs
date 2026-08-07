@@ -31,8 +31,6 @@ public class CameraMove : MonoBehaviour
         mainCamera.orthographicSize = Mathf.Clamp((mainCamera.orthographicSize + cameraZoom.ReadValue<float>() * zoomSpeed), minZoom, maxZoom);
         if (mouseClick.IsPressed())
         {
-            //Debug.Log("mouse is pressed");
-            //Debug.Log(mousePosition.ToString());
             this.transform.Translate(mousePositionVec3*CameraMoveSpeed,Space.Self);
         }  
         
