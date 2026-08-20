@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 1320099254}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23220454cc547a46a09f64f7b03847c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingGrid
-  width: 13
+  width: 16
   height: 13
 --- !u!1 &1480190919
 GameObject:
