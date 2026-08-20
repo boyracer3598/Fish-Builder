@@ -17,7 +17,19 @@ public class BuildingSystem : MonoBehaviour
     InputAction selectBuilding1;
     InputAction selectBuilding2;
     InputAction selectBuilding3;
+    InputAction rotateBuilding; 
+    InputAction buildInput;
 
+    void Start()
+    {
+        selectBuilding1 = InputSystem.actions["SelectBuilding1"];
+        selectBuilding2 = InputSystem.actions["SelectBuilding2"];
+        selectBuilding3 = InputSystem.actions["SelectBuilding3"];
+        rotateBuilding = InputSystem.actions["rotateBuilding"];
+        buildInput = InputSystem.actions["build"];
+    }
+    
+    
     private void Update()
     {
         Vector3 mousePos = GetMousePosition();
@@ -26,20 +38,29 @@ public class BuildingSystem : MonoBehaviour
         {
             HandlePreview(mousePos);
         }
-        else
+        
+        if (selectBuilding1.IsPressed())
         {
-
-            /// fix the input
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (preview != null)
             {
-                preview = CreatePreview(buildingData1, mousePos);
-            }else if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                preview = CreatePreview(buildingData2, mousePos);
-            }else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                preview = CreatePreview(buildingData3, mousePos);
+                Destroy(preview.gameObject); 
             }
+            preview = CreatePreview(buildingData1, mousePos);
+        }else if (selectBuilding2.IsPressed())
+        {
+            if (preview != null)
+            {
+                Destroy(preview.gameObject);
+            }
+            preview = CreatePreview(buildingData2, mousePos);
+        }else if (selectBuilding3.IsPressed())
+        {
+            print("press 3");
+            if (preview != null)
+            {
+                Destroy(preview.gameObject);
+            }
+            preview = CreatePreview(buildingData3, mousePos);
         }
     }
 
@@ -52,7 +73,7 @@ public class BuildingSystem : MonoBehaviour
         {
             preview.transform.position = GetSnappedCenterPosition(buildPositions);
             preview.ChangeState(BuildingPreview.BuildingPreviewState.POSITIVE);
-            if (Input.GetMouseButton(0))
+            if (buildInput.IsPressed())
             {
                 PlaceBuilding(buildPositions);
             }
@@ -61,7 +82,7 @@ public class BuildingSystem : MonoBehaviour
         {
             preview.ChangeState(BuildingPreview.BuildingPreviewState.NEGATIVE);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (rotateBuilding.IsPressed())
         {
             preview.Rotate(90);
         }
@@ -79,7 +100,7 @@ public class BuildingSystem : MonoBehaviour
     private Vector3 GetSnappedCenterPosition(List<Vector3> allBuildingPositions)
     {
         List<int> xs = allBuildingPositions.Select(p => Mathf.FloorToInt(p.x)).ToList();
-        List<int> zs = allBuildingPositions.Select(p => Mathf.FloorToInt(p.x)).ToList();
+        List<int> zs = allBuildingPositions.Select(p => Mathf.FloorToInt(p.z)).ToList();
         float centerX = (xs.Min() + xs.Max()) / 2f + CellSize / 2f;
         float centerZ = (zs.Min() + zs.Max()) / 2f + CellSize / 2f;
         return new(centerX,0,centerZ);

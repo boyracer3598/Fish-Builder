@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5895419298302226178, guid: bfdcb960e03327f4ab3ae4f94f10c6b4, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7486229834290179455, guid: bfdcb960e03327f4ab3ae4f94f10c6b4, type: 3}
       propertyPath: m_Name
       value: Camera Rig
@@ -303,8 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23220454cc547a46a09f64f7b03847c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingGrid
-  width: 5
-  height: 7
+  width: 13
+  height: 13
 --- !u!1 &1480190919
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +337,8 @@ Transform:
   m_GameObject: {fileID: 1480190919}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2.4996, y: 0, z: 3.4896}
-  m_LocalScale: {x: 4.9392, y: 6.9391003, z: 1}
+  m_LocalPosition: {x: 6.4882, y: -0, z: 6.9563}
+  m_LocalScale: {x: 12.916501, y: 13.872649, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 306239772}

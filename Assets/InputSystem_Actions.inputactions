@@ -34,7 +34,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Select Building 1",
+                    "name": "selectBuilding1",
                     "type": "Button",
                     "id": "2e35594b-fab2-4e74-820e-a91b3d55b654",
                     "expectedControlType": "",
@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Select Building 2",
+                    "name": "selectBuilding2",
                     "type": "Button",
                     "id": "22cf452f-eec0-4580-818b-9163ae3dc265",
                     "expectedControlType": "",
@@ -52,9 +52,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Select Building 3",
+                    "name": "selectBuilding3",
                     "type": "Button",
                     "id": "e4df97b7-b827-470e-ab01-8997ab6673cb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "rotateBuilding",
+                    "type": "Button",
+                    "id": "6025975b-4235-49c2-96e2-6c73a238f7c6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "build",
+                    "type": "Button",
+                    "id": "252b3ca9-0e48-432b-a6de-1c7614128c56",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -179,7 +197,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select Building 1",
+                    "action": "selectBuilding1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -190,18 +208,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select Building 2",
+                    "action": "selectBuilding2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "ca63e319-14d5-4115-9314-125824a6e3d3",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select Building 3",
+                    "action": "selectBuilding3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a509e58-a88d-40e6-a818-ac4c2a8c03b2",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rotateBuilding",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fe06215-f833-4f89-8aa1-1633e40c758c",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "build",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
