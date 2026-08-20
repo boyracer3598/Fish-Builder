@@ -27,7 +27,6 @@ public class CameraMove : MonoBehaviour
     {
         mousePosition= mouseMove.ReadValue<Vector2>();
         mousePositionVec3 = new Vector3(mousePosition.x,0, mousePosition.y);
-        Debug.Log("scroll wheel" + cameraZoom.ReadValue<float>());
         mainCamera.orthographicSize = Mathf.Clamp((mainCamera.orthographicSize + cameraZoom.ReadValue<float>() * zoomSpeed), minZoom, maxZoom);
         if (mouseClick.IsPressed())
         {
